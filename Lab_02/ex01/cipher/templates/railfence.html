@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mật mã Rail Fence</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='site.css') }}" rel="stylesheet">
+</head>
+<body class="app-body">
+    <div class="container page-shell py-4">
+        <section class="hero-panel mb-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center topbar">
+                <div>
+                    <div class="page-kicker">Mật mã zigzag</div>
+                    <h1 class="page-title">Mật mã Rail Fence</h1>
+                    <p class="page-subtitle">Số rail phải lớn hơn hoặc bằng 2. Văn bản được mã hóa theo đường zigzag trước khi ghép thành chuỗi kết quả.</p>
+                </div>
+                <a class="btn ghost-btn mt-3 mt-md-0" href="{{ url_for('home') }}">Trang chủ</a>
+            </div>
+        </section>
+
+        {% if error_message %}
+        <div class="error-panel mb-4">
+            <span class="result-label">Thông báo lỗi</span>
+            <p class="result-text">{{ error_message }}</p>
+        </div>
+        {% endif %}
+
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="card cipher-card h-100">
+                    <div class="card-header">Mã hóa</div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ url_for('railfence_encrypt') }}">
+                            <div class="form-group">
+                                <label for="railfence-plain-text">Bản rõ</label>
+                                <textarea class="form-control" id="railfence-plain-text" name="inputPlainText" rows="4" required>{{ input_plain_text }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="railfence-plain-key">Số rail</label>
+                                <input class="form-control" id="railfence-plain-key" type="number" min="2" name="inputKeyPlain" value="{{ input_key_plain }}" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary action-btn">Mã hóa</button>
+                        </form>
+
+                        {% if encrypt_result is not none %}
+                        <div class="result-panel">
+                            <span class="result-label">Kết quả</span>
+                            <p class="result-text">{{ encrypt_result }}</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+                <div class="card cipher-card h-100">
+                    <div class="card-header">Giải mã</div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ url_for('railfence_decrypt') }}">
+                            <div class="form-group">
+                                <label for="railfence-cipher-text">Bản mã</label>
+                                <textarea class="form-control" id="railfence-cipher-text" name="inputCipherText" rows="4" required>{{ input_cipher_text }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="railfence-cipher-key">Số rail</label>
+                                <input class="form-control" id="railfence-cipher-key" type="number" min="2" name="inputKeyCipher" value="{{ input_key_cipher }}" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary action-btn">Giải mã</button>
+                        </form>
+
+                        {% if decrypt_result is not none %}
+                        <div class="result-panel">
+                            <span class="result-label">Kết quả</span>
+                            <p class="result-text">{{ decrypt_result }}</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

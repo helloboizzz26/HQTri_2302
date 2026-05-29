@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành Bảo mật Thông tin Nâng cao</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='site.css') }}" rel="stylesheet">
+</head>
+<body class="app-body">
+    <div class="container page-shell py-5">
+        <section class="hero-panel text-center mb-5">
+            <img
+                class="hero-logo"
+                src="https://file1.hutech.edu.vn/file/editor/homepage/stories/hinh34/logo%20CMYK-01.png"
+                alt="HUTECH"
+            >
+            <div class="page-kicker justify-content-center">Phòng thí nghiệm Của Boiz</div>
+            <h1 class="page-title">Thực hành Bảo mật Thông tin Nâng cao</h1>
+            <p class="page-subtitle mx-auto">
+                Chọn thuật toán để mã hóa hoặc giải mã trực tiếp trên website
+            </p>
+        </section>
+
+        <div class="row algo-grid">
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card tool-card">
+                    <div class="card-body">
+                        <h2 class="tool-title">Mật mã Caesar</h2>
+                        <p class="tool-description">Dịch vòng ký tự theo một khóa số nguyên.</p>
+                        <a class="btn btn-primary open-btn" href="{{ url_for('caesar') }}">Mở trang</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card tool-card">
+                    <div class="card-body">
+                        <h2 class="tool-title">Mật mã Vigenère</h2>
+                        <p class="tool-description">Mã hóa dựa trên khóa là chuỗi ký tự A-Z.</p>
+                        <a class="btn btn-primary open-btn" href="{{ url_for('vigenere') }}">Mở trang</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card tool-card">
+                    <div class="card-body">
+                        <h2 class="tool-title">Mật mã Playfair</h2>
+                        <p class="tool-description">Mã hóa theo cặp ký tự với ma trận 5x5.</p>
+                        <a class="btn btn-primary open-btn" href="{{ url_for('playfair') }}">Mở trang</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card tool-card">
+                    <div class="card-body">
+                        <h2 class="tool-title">Mật mã Rail Fence</h2>
+                        <p class="tool-description">Sắp xếp bản rõ theo đường zigzag với số rail cho trước.</p>
+                        <a class="btn btn-primary open-btn" href="{{ url_for('railfence') }}">Mở trang</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card tool-card">
+                    <div class="card-body">
+                        <h2 class="tool-title">Mật mã hoán vị</h2>
+                        <p class="tool-description">Hoán vị vị trí ký tự theo số cột của khóa.</p>
+                        <a class="btn btn-primary open-btn" href="{{ url_for('transposition') }}">Mở trang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
