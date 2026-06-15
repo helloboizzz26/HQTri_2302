@@ -1,0 +1,6 @@
+# Bỏ qua tất cả các file key dạng .pem
+*.pem
+
+# Bỏ qua các thư mục cache của Python
+__pycache__/
+.pytest_cache/
