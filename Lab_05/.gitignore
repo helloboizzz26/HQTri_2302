@@ -1,0 +1,29 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Environment
+.env
+
+# VS Code
+.vscode/
+
+# Log
+*.log
+
+# Generated files
+encoded_image.png
+
+# SSL certificates
+ssl/certificates/
+
+# OS
+.DS_Store
+Thumbs.db
